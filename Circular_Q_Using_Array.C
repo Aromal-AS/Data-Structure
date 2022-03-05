@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 #define MAX 10
 void enqueue();
@@ -7,29 +8,27 @@ void display();
 int c,queue[MAX],item,front=-1,rear=-1,i,n,flag=0;
 
  void main(){
-	 clrscr();
 	 do
 	{
 		 printf("\n1.Insertion \n2)Deletion \n3)Search \n4)Display \n5)Exit\n");
 		 scanf("%d",&c);
-
 		 switch(c)
 		{
 			case 1:
 				 enqueue();
-			     break;
+	 		     break;
 			case 2:
-				dequeue();
-		    break;
+ 				dequeue();
+ 	            break;
 			case 3:
-				search();
-				break;
+ 				search();
+ 				break;
 			case 4:
-				display();
-				break;
+ 				display();
+ 				break;
 			case 5:
 			    exit(0);
-				break;
+ 				break;
 			default:
 				printf("\nInvalid input");
 		}
@@ -58,16 +57,16 @@ void dequeue()
  {
    if(front==-1)
     {
-	  printf("\nQUEUE UNDERFLOW : ");
+ 	  printf("\nQUEUE UNDERFLOW");
     }
    else if(front==rear)
     {
-	  printf("\nThe deleted element is: %d \n",queue[front]);
+	  printf("\nThe deleted element is:%d\n",queue[front]);
 	  front=rear=-1;
     }
    else
     {
-	  printf("\nThe deleted element is: %d \n",queue[front]);
+	  printf("\nThe deleted element is:%d\n",queue[front]);
 	  front=(front+1)%MAX;
     }
  }
@@ -84,28 +83,28 @@ void search()
      {
        int front_pos=front,rear_pos=rear;
        if(front_pos>rear_pos)
-	{
-	 while(front_pos>rear_pos)
-	 {
-	   if(queue[front_pos]==n)
-	   {
-	    flag=1;
-	    break;
-	   }
-	   front_pos=((front_pos+1))%MAX;
-	 }
-	}
-	if(front_pos<=rear_pos)
-	 {
-	   for(i=front_pos;i<=rear_pos;i++)
-	   {
-	     if(queue[i]==n)
-	     {
-	       flag=1;
-	       break;
-	     }
-	   }
-	 }
+        {
+         while(front_pos>rear_pos)
+         {
+           if(queue[front_pos]==n)
+           {
+            flag=1;
+            break;
+           }
+           front_pos=((front_pos+1))%MAX;
+         }
+        }
+        if(front_pos<=rear_pos)
+         {
+           for(i=front_pos;i<=rear_pos;i++)
+           {
+             if(queue[i]==n)
+             {
+               flag=1;
+               break;
+             }
+           }
+         }
      }
 	if(flag==1)
 		printf("\nElement is found ");
@@ -117,18 +116,18 @@ void display()
 {
 	if(front==-1)
 	{
-	  printf("\nQUEUE UNDERFLOW\n");
-	}
-	else
-	{
+ 	  printf("\nQUEUE UNDERFLOW\n");
+ 	}
+ 	else
+ 	{
       int front_pos=front,rear_pos=rear;
 	  if(front_pos>rear_pos)
 	  {
 		while(front_pos>rear_pos)
-	 {
+         {
 			printf(" %d ",queue[front_pos]);
 			front_pos=((front_pos+1))%MAX;
-	 }
+         }
       }
 	  if(front_pos<=rear_pos){
 		for(i=front_pos;i<=rear_pos;i++)
